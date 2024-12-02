@@ -53,5 +53,12 @@ The trained model is hosted on Hugging Face:
 ---
 
 
+
+![image](https://github.com/user-attachments/assets/9b8c84b4-134b-4685-be56-7f1ec9b2c27a)
+
+![image](https://github.com/user-attachments/assets/8f3f796b-4546-496c-98d6-03de250ea92e)
+
+![image](https://github.com/user-attachments/assets/f3c8b65e-f04d-4fea-8d1a-35c694661645)
+
 ![image](https://github.com/user-attachments/assets/342a158d-d9d9-46f8-9b51-4e7a9d3651ba)
 
