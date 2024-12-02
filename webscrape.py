@@ -7,8 +7,6 @@ import os
 import shutil
 from google_images_search import GoogleImagesSearch
 
-# ... [Previous code remains unchanged] ...
-
 ##########
 
 # EXPANDED VERSION
@@ -111,7 +109,7 @@ def save_image(url, file_path):
 
 def google_image_search(query, output_folder):
     # Replace with your own API key and CX
-    gis = GoogleImagesSearch('AIzaSyAO3Yrza37O9yfHOmvZI62skGNvQkSMcIk', 'a79096328085f4a61') #GoogleImagesSearch('YOUR_API_KEY', 'YOUR_CX')
+    gis = GoogleImagesSearch() #GoogleImagesSearch('YOUR_API_KEY', 'YOUR_CX')
     
     params = {
         'q': query,
