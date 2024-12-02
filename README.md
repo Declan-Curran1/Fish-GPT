@@ -1,23 +1,53 @@
-############################################################## #OVERVIEW ##############################################################
+# Fish Species Classification with LLM and Image Encoder
 
-Real-Time-Bushfire-Prediction
-Takes high resolution multispectral sentinel-2 satellite imagery. Applies k-means clustering to group pixels into seven groups based on the 12 bands available with Sentinel 2. Uses time-series (data collected every 3 days between both Sentinel 2 satellites) on the Sydney/blue mountains area to predict whether clusters were predictors for fire. 'Fire' is defined as band 12 of the sentinel-2 satellites which measures Short Wave InfraRed (SWIR) light. This is an imperfect proxy for fires but works in this limited context. It is recommended to change this to another source such as NASA's freely available MODIS satellite data.
+This project trains a large language model (LLM) with an image encoder to classify fish species based on input images. The model is fine-tuned to not only identify the fish species but also provide a detailed explanation for its classification decision. 
 
-############################################################## #DATA ##############################################################
+The fine-tuned model is available on [Hugging Face](https://huggingface.co/Declan1/llava-v1.6-mistral-7b-sydneyfish-a100).
 
-Datasource easily altered by choosing lat/lon co-ordinates + timeframe in 1st file
-In the base files provided, data is trained & run on data in the greater sydney/blue mountains area with images collected on avg every 3 days. As this data is from the multispectral sentinel-2 satellites, a wide array of data is collected in each image (13 bands spanning RGB, short/near infrared, vegetation index etc.)
+---
 
-############################################################## #INSTRUCTIONS ##############################################################
+## 📖 Overview
 
-Files should be run in the following order:
-Sentinel-2 API-(sentinelhub)-Flow-Cleaned-1.py (Uses sentinelhub API to collect imagery)
-K-Means-Unsupervised-Flow-Cleaned-2.py (Runs k-means clustering on all 13 bands across both satellites for Aus 2019 bushfires)
-rasterio_polygonise-Flow-Cleaned-3.py ('polygonises' the classified images, translating the clusters into rasters in .shp file format)
-Land-Use-Analyser-Flow-Cleaned-4.py (Uses land use analyser package to determine area of each cluster in 555m x 555m grid)
-Final-Analyse-Flow-Cleaned-5.py (Using data across all grids + timeframes, is there a relationship between clusters & fires?)
+### Objectives
+- Train an LLM with an image encoder to classify fish species.
+- Fine-tune the model to generate explanations for its predictions.
+- Use image data scraped from the internet and caption data curated from the Australian Museum and an LLM.
 
+### Features
+- **Fish Species Identification**: Predicts the fish species based on a given image.
+- **Explainability**: Provides a detailed textual explanation for its predictions.
+- **Fine-Tuning**: Optimized for 4 hours on an A100 GPU.
 
+---
 
+## 🛠️ Model Details
 
-![image](https://github.com/user-attachments/assets/a9660028-8e82-410f-96ea-47d4f7d3f55e)
+### Base Model
+- **Architecture**: LLaVA (Large Language and Vision Assistant) v1.6
+- **Model Backbone**: Mistral-7B
+- **Fine-Tuned Dataset**: Sydney Fish Dataset
+  - Image Data: Scraped from the internet.
+  - Caption Data: Curated from the Australian Museum and enhanced using an LLM.
+
+### Training Details
+- **Training Duration**: 4 hours
+- **Hardware**: A100 GPU
+- **Optimizer**: AdamW
+- **Learning Rate Scheduler**: Cosine Annealing
+
+### Model Access
+The trained model is hosted on Hugging Face:  
+[https://huggingface.co/Declan1/llava-v1.6-mistral-7b-sydneyfish-a100](https://huggingface.co/Declan1/llava-v1.6-mistral-7b-sydneyfish-a100)
+
+---
+
+## 📂 Dataset
+
+- **Image Data**: 
+  - Source: Scraped from various online sources.
+  - Format: JPEG/PNG images.
+- **Caption Data**:
+  - Source: Australian Museum's fish species database and an LLM for data augmentation.
+  - Format: JSON with mappings between image IDs and captions.
+
+---
