@@ -2,7 +2,7 @@
 
 This project trains a large language model (LLM) with an image encoder to classify fish species based on input images. The model is fine-tuned to not only identify the fish species but also provide a detailed explanation for its classification decision. You may ask why this was done instead of a normal CNN which is much faster and easier to train??? The answer is that the model also provides an explanation for why a given fish was chosen and suggests potential other species. Otherwise, a CNN would still be much faster and is probably the better option regardless. 
 
-The fine-tuned model is available on [Hugging Face](https://huggingface.co/Declan1/llava-v1.6-mistral-7b-sydneyfish-a100).
+Nonetheless, the fine-tuned model is available on [Hugging Face](https://huggingface.co/Declan1/llava-v1.6-mistral-7b-sydneyfish-a100).
 
 ---
 
